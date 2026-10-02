@@ -1,3 +1,11 @@
+## Unreleased
+
+### Added
+
+* Class Geom2D::Algorithms::ConvexHull for computing the convex hull of a point set
+* Class Geom2D::Algorithms::KineticConvexHull for analyzing how the convex hull of points
+  moving with constant velocities evolves over a finite time interval
+
 ## 0.4.1 - 2023-07-31
 
 ### Added

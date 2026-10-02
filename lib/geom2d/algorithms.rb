@@ -16,6 +16,8 @@ module Geom2D
   module Algorithms
 
     autoload(:PolygonOperation, 'geom2d/algorithms/polygon_operation')
+    autoload(:ConvexHull, 'geom2d/algorithms/convex_hull')
+    autoload(:KineticConvexHull, 'geom2d/algorithms/kinetic_convex_hull')
 
     extend Utils
 

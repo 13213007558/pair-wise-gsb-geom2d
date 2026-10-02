@@ -29,6 +29,9 @@ Copyright (C) 2018-2023 Thomas Leitner <t_leitner@gmx.at>, licensed under the MI
 * Algorithms
   * Segment-Segment Intersection
   * Boolean Operations on PolygonSets
+  * Convex Hull
+  * Kinetic Convex Hull Analysis (event times and hull vertices for points moving with
+    constant velocities)
 
 ## Usage
 
