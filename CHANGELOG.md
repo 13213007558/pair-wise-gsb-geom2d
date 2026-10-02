@@ -1,3 +1,10 @@
+## Unreleased
+
+### Added
+
+* Static strict convex hull calculation
+* Event-driven convex hull analysis for points moving with constant velocity
+
 ## 0.4.1 - 2023-07-31
 
 ### Added
