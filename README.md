@@ -29,6 +29,7 @@ Copyright (C) 2018-2023 Thomas Leitner <t_leitner@gmx.at>, licensed under the MI
 * Algorithms
   * Segment-Segment Intersection
   * Boolean Operations on PolygonSets
+  * Constrained Delaunay Triangulation of PolygonSets (multiple outer contours and holes)
 
 ## Usage
 

@@ -1,3 +1,12 @@
+## Unreleased
+
+### Added
+
+* Constrained Delaunay triangulation of polygon sets via
+  Geom2D::Algorithms::ConstrainedDelaunay, supporting multiple outer contours and holes,
+  returning triangles together with their adjacency relations
+
+
 ## 0.4.1 - 2023-07-31
 
 ### Added
