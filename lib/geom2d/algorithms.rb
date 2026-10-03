@@ -16,6 +16,7 @@ module Geom2D
   module Algorithms
 
     autoload(:PolygonOperation, 'geom2d/algorithms/polygon_operation')
+    autoload(:PowerDiagram, 'geom2d/algorithms/power_diagram')
 
     extend Utils
 

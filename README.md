@@ -28,6 +28,7 @@ Copyright (C) 2018-2023 Thomas Leitner <t_leitner@gmx.at>, licensed under the MI
   * Path (TODO)
 * Algorithms
   * Segment-Segment Intersection
+  * Clipped Power Diagram Area Optimization
   * Boolean Operations on PolygonSets
 
 ## Usage
@@ -47,4 +48,19 @@ line3 = Geom2D::Segment([3, 4], [9, 6])   # arrays are also possible
 
 # Segment intersection
 line1.intersect(line3)  # => intersection_point
+~~~
+
+Power diagram weights can be fitted so that the cells clipped to a bounded polygon match prescribed
+areas. The returned weights have mean zero, which removes the constant-weight gauge freedom:
+
+~~~ ruby
+domain = Geom2D::Polygon([0, 0], [1, 0], [1, 1], [0, 1])
+sites = [[0.25, 0.25], [0.75, 0.25], [0.75, 0.75], [0.25, 0.75]]
+result = Geom2D::Algorithms::PowerDiagram.solve(domain, sites, [0.7, 0.1, 0.1, 0.1])
+
+result.status             # => :optimal
+result.weights            # => mean-zero power weights
+result.areas              # => clipped cell areas
+result.area_residuals     # => achieved area - target area, per site
+result.coverage_residual  # => absolute total-area mismatch
 ~~~
