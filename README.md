@@ -29,6 +29,7 @@ Copyright (C) 2018-2023 Thomas Leitner <t_leitner@gmx.at>, licensed under the MI
 * Algorithms
   * Segment-Segment Intersection
   * Boolean Operations on PolygonSets
+  * Constrained Delaunay Triangulation of PolygonSets (multiple outer contours and holes)
 
 ## Usage
 
@@ -47,4 +48,23 @@ line3 = Geom2D::Segment([3, 4], [9, 6])   # arrays are also possible
 
 # Segment intersection
 line1.intersect(line3)  # => intersection_point
+
+# Constrained Delaunay triangulation: outer contours counterclockwise, holes clockwise
+outer = Geom2D::Polygon([0, 0], [10, 0], [10, 10], [0, 10])
+hole  = Geom2D::Polygon([3, 3], [3, 7], [7, 7], [7, 3])
+mesh = Geom2D::Algorithms::ConstrainedDelaunayTriangulation.run(
+  Geom2D::PolygonSet(outer, hole)
+)
+mesh.triangles.each do |triangle|
+  # triangle.vertices  -> indices into mesh.points
+  # triangle.neighbors -> indices into mesh.triangles (nil on the boundary)
+end
+mesh.area                 # => total area of the triangulated region
+mesh.constraint_edges     # => all preserved constraint edges
+
+# The result of the boolean operations can directly be triangulated
+subject = Geom2D::PolygonSet(Geom2D::Polygon([0, 0], [10, 0], [10, 10], [0, 10]))
+clipping = Geom2D::PolygonSet(Geom2D::Polygon([5, 5], [15, 5], [15, 15], [5, 15]))
+result = Geom2D::Algorithms::PolygonOperation.run(subject, clipping, :difference)
+Geom2D::Algorithms::ConstrainedDelaunayTriangulation.run(result).triangles
 ~~~

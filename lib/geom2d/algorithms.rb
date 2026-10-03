@@ -16,6 +16,8 @@ module Geom2D
   module Algorithms
 
     autoload(:PolygonOperation, 'geom2d/algorithms/polygon_operation')
+    autoload(:ConstrainedDelaunayTriangulation,
+             'geom2d/algorithms/constrained_delaunay_triangulation')
 
     extend Utils
 

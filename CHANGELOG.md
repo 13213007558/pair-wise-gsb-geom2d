@@ -1,3 +1,12 @@
+## Unreleased
+
+### Added
+
+* Class Geom2D::Algorithms::ConstrainedDelaunayTriangulation for triangulating PolygonSets with
+  multiple outer contours and holes, returning triangle vertices and neighbor adjacency
+* Constraint edges are preserved (collinear vertices are handled by edge splitting), and
+  intersecting input constraints raise a ConstraintError listing every conflict
+
 ## 0.4.1 - 2023-07-31
 
 ### Added
