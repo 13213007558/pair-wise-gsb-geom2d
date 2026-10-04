@@ -16,6 +16,7 @@ module Geom2D
   module Algorithms
 
     autoload(:PolygonOperation, 'geom2d/algorithms/polygon_operation')
+    autoload(:GuillotinePacking, 'geom2d/algorithms/guillotine_packing')
 
     extend Utils
 
